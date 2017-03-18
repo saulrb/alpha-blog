@@ -5,22 +5,29 @@
 #   gem 'pg'
 #
 default: &default
-  adapter: postgresql
-  encoding: unicode
+  adapter: sqlite3
   pool: 5
   timeout: 5000
 
 development:
   <<: *default
-  database: db/development.pgsql
+  database: db/development.sqlite3
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/test.pgsql
+  database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.pgsql
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  timeout: 5000
+  database: d84f5o2msm5s9s
+  user: nwphljhijvgcap
+  password: ad67f09aad8e0b4948301757b51a7523b967b5fd6e3857a986877d40d3b1d9ef
+  port: 5432
+  host: ec2-54-163-233-89.compute-1.amazonaws.com
+  
