@@ -1,8 +1,8 @@
 # SQLite version 3.x
 #   gem install pg
 #
-#   Ensure the Postgresql gem is defined in your Gemfile
-#   gem 'pg'
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem 'sqlite3'
 #
 default: &default
   adapter: sqlite3
@@ -20,6 +20,8 @@ test:
   <<: *default
   database: db/test.sqlite3
 
+#   Ensure the Postgresql gem is defined in your Gemfile
+#   gem 'pg'
 production:
   adapter: postgresql
   encoding: unicode
