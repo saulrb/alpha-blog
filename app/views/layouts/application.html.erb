@@ -20,7 +20,15 @@
     <%= render 'layouts/navigation' %>
     
       <!-- Page wraper -->
-        <div id="page-wrapper" class="gray-bg">   
+        <div id="page-wrapper" class="gray-bg">  
+          <!-- Top navigation bar -->
+         <%= render 'layouts/topnavbar' %>
+         
+          <% flash.each do | name, msg |%>
+            <ul>
+              <li><%= msg %></li>
+            </ul>
+          <% end %>
           
           <!-- Main View -->
           <%= yield %>
