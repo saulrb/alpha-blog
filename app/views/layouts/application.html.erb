@@ -24,12 +24,7 @@
           <!-- Top navigation bar -->
          <%= render 'layouts/topnavbar' %>
          
-          <% flash.each do | name, msg |%>
-            <ul>
-              <li><%= msg %></li>
-            </ul>
-          <% end %>
-          
+          <%= render 'layouts/messages' %>  
           <!-- Main View -->
           <%= yield %>
           
