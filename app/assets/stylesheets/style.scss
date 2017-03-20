@@ -11,10 +11,10 @@
 // Bootstra
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
 
 // Variables, Mixins
-//@import "master";
-//@import "base/variables";
+@import "base/variables";
 @import "base/mixins";
 
 // INSPINIA Theme Elements
