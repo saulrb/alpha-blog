@@ -19,13 +19,18 @@
                 </div>
             </li>
             <li class="<%= 'active' if current_page?(root_path) %>">
+                <%= link_to root_path do %>
+                <i class="fa fa-anchor"></i> <span class="nav-label">Home Page</span>
+                <% end %>
+            </li>
+            <li class="<%= 'active' if current_page?(articles_path) %>">
                 <%= link_to articles_path do %>
-                <i class="fa fa-laptop"></i> <span class="nav-label">Alpha Blog</span>
+                <i class="fa fa-pencil"></i> <span class="nav-label">Alpha Blog</span>
                 <% end %>
             </li>
             <li class="<%= 'active' if current_page?(about_path) %>">
                 <%= link_to about_path do %>
-                <i class="fa fa-desktop"></i> <span class="nav-label">About page</span>
+                <i class="fa fa-comment-o"></i> <span class="nav-label">About page</span>
                 <% end %>
             </li>
         </ul>
