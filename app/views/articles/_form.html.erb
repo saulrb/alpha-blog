@@ -1,6 +1,6 @@
 <div class="ibox float-e-margins">
     <div class="ibox-title" >
-      <h5>  </h5>
+      <h5 align="center"> <%= title_box=%>  </h5>
       <div class="ibox-tools">
         <a class="collapse-link">
           <i class="fa fa-chevron-up"></i>
@@ -14,16 +14,7 @@
       </div>
     </div>  
     <div class="ibox-content">
-      <% if @article.errors.any? %>
-      <div class="alert alert-danger" role="alert">
-        <h2> The following errors prevented the article from getting created </h2>
-        <ul>
-          <% @article.errors.full_messages.each do |msg| %>
-             <li> <%= msg %> </li>
-          <% end %>
-        </ul>
-      </div>
-      <% end %>
+      <%= render 'shared/errors', obj: @article %>
       <div class="row">
         <div class='col-md-12'>
           <%= form_for(@article, :html => {class: "form-horizontal", role: "form"}) do | f | %>
