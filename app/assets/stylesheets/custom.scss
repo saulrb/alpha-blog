@@ -64,4 +64,19 @@
   }
 }
 
+.jumbotron {
+  background-image: asset-url('6.jpg');
+  background-size: cover;
+  height: 550px;
+}
 
+.jumbotron h1 {
+  margin-bottom: 30px;
+  color:#fff;
+  font-weight:bold;
+}
+
+.btn-lg{
+  font-size: 1.7em;
+  background-color:black;
+}
