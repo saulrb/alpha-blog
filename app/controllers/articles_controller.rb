@@ -11,7 +11,6 @@ class ArticlesController < ApplicationController
   end
   
   def edit
- 
   end
   
   def create
@@ -36,6 +35,7 @@ class ArticlesController < ApplicationController
   end
   
   def show
+    @title_box = "Showing selected article"
   end
   
   def destroy

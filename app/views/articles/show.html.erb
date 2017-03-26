@@ -1,12 +1,52 @@
-<h1>Showing selected article </h1>
+<div class="ibox float-e-margins">
+    <div class="ibox-title" >
+      <h5 align="center">Showing selected article</h5>
+      <div class="ibox-tools">
+        <a class="collapse-link">
+          <i class="fa fa-chevron-up"></i>
+        </a>
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+          <i class="fa fa-wrench"></i>
+        </a>
+        <a class="close-link">
+            <i class="fa fa-times"></i>
+        </a>
+      </div>
+    </div>
+    <div class="ibox-content">
+      <div class="row">
+        <div class='col-md-12'>
+          <div class="form-horizontal">
+            <div class="form-group">
+              <div class="control-label col-sm-2">
+                Title:
+              </div>
+              <div class="col-sm-8">
+                <p class="form-control"> <%= @article.title %> </p>
+              </div>  
+            </div>  
+            <div class="form-group">
+              <div class="control-label col-sm-2">
+                Description:
+              </div>
+              <div class="col-sm-8">
+                <p class="text-area-sw"> <%= @article.description %> </p>
+              </div>  
+            </div> 
+            <div class="col-md-8 col-md-offset-2 article-actions">
+              <%= link_to "Edit this article", edit_article_path(@article) ,class: "btn btn-primary btn-lg" %>
+              <%= link_to "Delete this article", article_path(@article), method: :delete , 
+                                                 data:{ confirm:"Are you sure?"} ,
+                                                 class: "btn btn-danger btn-lg" %>
+            </div>
+            <div class="col-xs-4 col-xs-offset-4" >
+              [ <%= link_to "Cancel request and return to article listing ", articles_path %> ]
+            </div>
+          </div>
+        </div>
+      </div>  
+    </div>
+</div>
 
-<p> 
-  Title: <%= @article.title %> 
-</p>
-<p> 
-  Description: <%= @article.description %>
-</p>
 
-<%= link_to "Edit this article", edit_article_path(@article) %>
-<br/>
-<%= link_to "Back to article listing ", articles_path %>
+
