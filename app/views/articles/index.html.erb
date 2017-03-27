@@ -3,29 +3,45 @@
   <%= link_to "Create new article" , new_article_path %>
 </p>
 <div>
-  <table>
+  <table id='articles_table' class='display' cellspacing="0" width="100%">
+      <thead>
       <tr>
         <th>Title</th>
         <th>Description</th>
+        <th>action1</th>
+        <th>action2</th>
+        <th>action3</th>
       </tr>
-      <% @articles.each do | article | %>
+      </thead>
+      <tfoot>
         <tr>
-          <td>
-            <%= article.title %>
-          </td>
-          <td>
-            <%= article.description %>
-          </td>
-          <td>
-            <%= link_to 'Edit', edit_article_path(article) %>
-          </td>
-          <td>
-            <%= link_to 'Show', article_path(article) %>
-          </td>
-          <td>
-            <%= link_to 'Delete', article_path(article), method: :delete, data: {confirm: "Are you sure?"}  %>
-          </td>
-        </tr>
-      <% end %>
+        <th>Title</th>
+        <th>Description</th>
+        <th>action1</th>
+        <th>action2</th>
+        <th>action3</th>
+      </tr>      
+      </tfoot>
+      <tbody>
+        <% @articles.each do | article | %>
+          <tr>
+            <td>
+              <%= article.title %>
+            </td>
+            <td>
+              <%= article.description %>
+            </td>
+            <td>
+              <%= link_to 'Edit', edit_article_path(article) %>
+            </td>
+            <td>
+              <%= link_to 'Show', article_path(article) %>
+            </td>
+            <td>
+              <%= link_to 'Delete', article_path(article), method: :delete, data: {confirm: "Are you sure?"}  %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
   </table>
 </div>
