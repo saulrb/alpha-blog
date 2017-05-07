@@ -1,0 +1,43 @@
+<div class="ibox float-e-margins">
+    <div class="ibox-title" >
+        <h5 align="center"> <%= @title_box %>  </h5>
+        <div class="ibox-tools">
+            <a class="collapse-link">
+                <i class="fa fa-chevron-up"></i>
+            </a>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="fa fa-wrench"></i>
+            </a>
+            <a class="close-link">
+                <i class="fa fa-times"></i>
+            </a>
+        </div>
+    </div>  
+    <div class="ibox-content">
+        <%= render 'shared/errors', obj: @user %>
+        <%= form_for(@user, :html => {class: "m-t", role:"form"}) do |f| %>
+            <div class="form-group">
+                <div class="control-label col-sm-2">
+                    <%= f.label :user_name %>
+                </div>
+                <%= f.text_field :user_name, class: "form-control", placeholder: "Enter username", autofocuse: true %>
+            </div>
+            <div class="form-group">
+                <div class="control-label col-sm-2">
+                    <%= f.label :email %>
+                </div>
+                <%= f.email_field :email, class: "form-control", placeholder: "Enter email" %>
+            </div>
+            <div class="form-group">
+                <div class="control-label col-sm-2">
+                    <%= f.label :password %>
+                </div>
+                <%= f.password_field :password, class: "form-control", placeholder: "Enter password" %>
+            </div>  
+            <%= f.submit "Sign up", class: 'btn btn-primary btn-lg' %>
+        <% end %>
+        <div class="col-xs-4 col-xs-offset-4" >
+            [ <%= link_to "Cancel request and return to article listing ", articles_path , method: :get %> ]
+        </div>
+    </div>
+</div>
