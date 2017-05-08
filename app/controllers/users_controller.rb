@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   
-  before_action :add_title, only: [:new]
+
+  before_action :set_user, only: [:edit, :update, :show, :destroy]
   
   def new
     @user = User.new
@@ -20,16 +21,20 @@ class UsersController < ApplicationController
     @title_box = 'Showing user'
   end
   
-  def add_title
-    @title_box = 'Singup for Alpha Blog'
-  end
-
   def edit
+  end
+  
+  def set_user
     @user = User.find(params[:id])
   end
 
   def update
-  
+    if @user.update(user_params)
+      flash[:success] = "User has been updated successfully"
+      redirect_to articles_path
+    else
+      render 'edit'
+    end
   end
 
   private
@@ -38,5 +43,4 @@ class UsersController < ApplicationController
     params.require(:user).permit(:user_name,:email,:password)
   end
 
-  
 end  
