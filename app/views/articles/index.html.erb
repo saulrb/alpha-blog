@@ -2,44 +2,4 @@
 <p>
   <%= link_to "Create new article" , new_article_path %>
 </p>
-<div>
-  <table id='articles_table' class='display' cellspacing="0" width="100%">
-      <thead>
-      <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th>actions</th>
-      </tr>
-      </thead>
-      <tfoot>
-        <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th>actions</th>
-      </tr>      
-      </tfoot>
-      <tbody>
-        <% @articles.each do | article | %>
-          <tr>
-            <td>
-              <%= link_to article.title, article_path(article) %>
-            </td>
-            <td>
-              <%= article.description %>
-              <div class="article-meta-details">
-                <small>Created by: <%= article.user.user_name if article.user %>, 
-                                   <%= time_ago_in_words(article.created_at) %> ago,
-                                  last update: <%= time_ago_in_words(article.updated_at) %></small>
-              </div>
-            </td>
-            <td>
-              <%= link_to "Edit this article", edit_article_path(article) ,class: "btn btn-primary btn-xs" %>
-              <%= link_to "Delete this article", article_path(article), method: :delete , 
-                                                 data:{ confirm:"Are you sure?"} ,
-                                                 class: "btn btn-danger btn-xs" %>              
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-  </table>
-</div>
+<%= render 'article' , obj: @articles %>

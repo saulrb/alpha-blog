@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @title_box = 'Showing user'
+    
   end
   
   def edit
