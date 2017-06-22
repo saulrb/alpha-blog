@@ -1,0 +1,20 @@
+<h1 align="center"> All Alpha Bloggers</h1>
+<div align="center" >
+  <%= will_paginate %>
+  <% @users.each do | user | %>
+    <ul class="listing">
+      <div class="row">
+        <li>
+          <%= link_to gravatar_for(user), user_path(user) %>
+        </li>
+        <li class="article-title">
+          <%= link_to user.user_name, user_path(user) %>
+        </li>
+        <li>
+          <small><%= pluralize(user.articles.count,"article") if user.articles %></small>
+        </li>
+      </div>
+    </ul>
+  <% end %>
+  <%= will_paginate %>
+</div>
